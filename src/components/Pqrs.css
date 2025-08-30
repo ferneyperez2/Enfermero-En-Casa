@@ -1,0 +1,19 @@
+.pqrs {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.pqrs-form {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pqrs-form input,
+.pqrs-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
