@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Appointment from "./components/Appointment";
+import ServicesTabs from "./components/ServicesTabs";
 import News from "./components/News";
 import Pqrs from "./components/Pqrs";
 import Footer from "./components/Footer";
@@ -14,15 +15,12 @@ function App() {
       <div className="content">
         <Hero />
         <Appointment />
+        <ServicesTabs /> {/* ✅ Aquí agregamos los servicios */}
         <News />
         <Pqrs />
       </div>
 
-      <div>
-      {/* Aquí tu contenido */}
       <Footer />
-
-    </div>
     </div>
   );
 }
