@@ -18,22 +18,23 @@ function Pqrs() {
 
     emailjs
       .send(
-        "service_xxxxx", // 👉 ID de tu servicio en EmailJS
-        "template_xxxxx", // 👉 ID de tu plantilla en EmailJS
+        "service_xxxxx", // 👉 tu Service ID de EmailJS
+        "template_xxxxx", // 👉 tu Template ID de EmailJS
         {
           from_name: form.nombre,
           from_email: form.correo,
           message: form.mensaje,
         },
-        "user_xxxxx" // 👉 Tu Public Key de EmailJS
+        "public_xxxxx" // 👉 tu Public Key de EmailJS
       )
       .then(
-        (result) => {
-          alert("Tu PQRS fue enviada con éxito ✅");
+        () => {
+          alert("✅ Tu PQRS fue enviada con éxito");
           setForm({ nombre: "", correo: "", mensaje: "" });
         },
         (error) => {
-          alert("Hubo un error ❌, inténtalo nuevamente.");
+          console.error("Error:", error);
+          alert("❌ Hubo un error, inténtalo nuevamente.");
         }
       );
   };
