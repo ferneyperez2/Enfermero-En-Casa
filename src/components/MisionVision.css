@@ -1,0 +1,95 @@
+/* Contenedor principal para las dos tarjetas */
+.mv-container {
+    display: flex;
+    flex-direction: column; /* Apila las tarjetas verticalmente en móviles */
+    gap: 30px;
+    padding: 40px 20px;
+    background-color: #f8f9fa; /* Color de fondo suave */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Tarjeta individual de Misión y Visión */
+.mv-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    padding: 35px;
+    flex: 1; /* Permite que las tarjetas se expandan */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Efecto al pasar el mouse */
+.mv-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Título de la tarjeta */
+.mv-title {
+    font-size: 2.5rem;
+    color: #333333;
+    margin-bottom: 20px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Línea decorativa debajo del título */
+.mv-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #007bff; /* Color primario */
+    border-radius: 2px;
+}
+
+/* Texto de la tarjeta */
+.mv-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Colores específicos para la Misión y la Visión */
+.mv-mision {
+    background-color: #e3f2fd; /* Azul muy claro */
+}
+.mv-vision {
+    background-color: #fff3e0; /* Naranja muy claro */
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos responsivos */
+@media (min-width: 768px) {
+    .mv-container {
+        flex-direction: row; /* Coloca las tarjetas una al lado de la otra en pantallas grandes */
+    }
+    .mv-card {
+        padding: 50px;
+    }
+    .mv-title {
+        font-size: 2rem;
+    }
+}

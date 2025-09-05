@@ -1,0 +1,37 @@
+/* Conserva los estilos del banner y el título, y añade el nuevo contenedor de cuadrícula */
+.sedes-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sedes-banner {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sedes-title {
+    font-size: 3rem;
+    color: #007bff;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.sedes-intro {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.sedes-grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Diseño responsivo */
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Puedes eliminar los estilos `sedes-content`, `sedes-locations` y `sedes-addresses` que usaste antes, ya que ahora los reemplazamos con los componentes de tarjeta. */

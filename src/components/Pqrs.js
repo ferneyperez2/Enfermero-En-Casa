@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
 import "./Pqrs.css";
 
 function Pqrs() {
@@ -13,29 +12,32 @@ function Pqrs() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    emailjs
-      .send(
-        "service_xxxxx", // 👉 ID de tu servicio en EmailJS
-        "template_xxxxx", // 👉 ID de tu plantilla en EmailJS
-        {
-          from_name: form.nombre,
-          from_email: form.correo,
-          message: form.mensaje,
+    try {
+      // Enviamos los datos al backend
+      const response = await fetch("http://localhost:5000/api/pqrs", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        "user_xxxxx" // 👉 Tu Public Key de EmailJS
-      )
-      .then(
-        (result) => {
-          alert("Tu PQRS fue enviada con éxito ✅");
-          setForm({ nombre: "", correo: "", mensaje: "" });
-        },
-        (error) => {
-          alert("Hubo un error ❌, inténtalo nuevamente.");
-        }
-      );
+        body: JSON.stringify(form), // Convertimos el objeto del formulario a JSON
+      });
+
+      if (response.ok) {
+        // La petición fue exitosa (código 200)
+        alert("Tu PQRS fue enviada con éxito ✅");
+        setForm({ nombre: "", correo: "", mensaje: "" }); // Reseteamos el formulario
+      } else {
+        // Hubo un error en el servidor
+        alert("Hubo un error ❌, inténtalo nuevamente.");
+      }
+    } catch (error) {
+      // Error de red, el servidor no responde
+      console.error("Error al conectar con el servidor:", error);
+      alert("No se pudo conectar con el servidor. Por favor, inténtalo más tarde.");
+    }
   };
 
   return (
