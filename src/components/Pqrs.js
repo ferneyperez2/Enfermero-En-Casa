@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
 import "./Pqrs.css";
 
 function Pqrs() {
@@ -13,30 +12,26 @@ function Pqrs() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    emailjs
-      .send(
-        "service_xxxxx", // 👉 tu Service ID de EmailJS
-        "template_xxxxx", // 👉 tu Template ID de EmailJS
-        {
-          from_name: form.nombre,
-          from_email: form.correo,
-          message: form.mensaje,
-        },
-        "public_xxxxx" // 👉 tu Public Key de EmailJS
-      )
-      .then(
-        () => {
-          alert("✅ Tu PQRS fue enviada con éxito");
-          setForm({ nombre: "", correo: "", mensaje: "" });
-        },
-        (error) => {
-          console.error("Error:", error);
-          alert("❌ Hubo un error, inténtalo nuevamente.");
-        }
-      );
+    try {
+      const response = await fetch("http://localhost:5000/api/pqrs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (response.ok) {
+        alert("✅ Tu PQRS fue enviada con éxito");
+        setForm({ nombre: "", correo: "", mensaje: "" });
+      } else {
+        alert("❌ Hubo un error en el servidor, inténtalo nuevamente.");
+      }
+    } catch (error) {
+      console.error("Error al conectar con el servidor:", error);
+      alert("⚠️ No se pudo conectar con el servidor.");
+    }
   };
 
   return (
