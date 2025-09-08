@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import MisionVision from "./components/MisionVision";
 import NuestrasSedes from "./components/NuestrasSedes";
 import AnimatedWrapper from './components/AnimatedWrapper';
+import Contact from "./components/Contact";
 import "./App.css";
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
         <News />
         <Pqrs />
         <Appointment />
+        <Contact />
+        
       </div>
 
       <Footer />
