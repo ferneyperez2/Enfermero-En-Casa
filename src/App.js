@@ -1,38 +1,65 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Importa los estilos CSS de AOS
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Appointment from "./components/Appointment";
+import MisionVision from "./components/MisionVision";
+import NuestrasSedes from "./components/NuestrasSedes";
 import ServicesTabs from "./components/ServicesTabs";
 import News from "./components/News";
 import Pqrs from "./components/Pqrs";
-import Footer from "./components/Footer";
-import MisionVision from "./components/MisionVision";
-import NuestrasSedes from "./components/NuestrasSedes";
-import AnimatedWrapper from './components/AnimatedWrapper';
+import Appointment from "./components/Appointment";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+
 import "./App.css";
 
 function App() {
-  return (
-    <AnimatedWrapper>
+  useEffect(() => {
+    AOS.init({
+      duration: 1200, // Duración de la animación en milisegundos
+      once: true,     // La animación solo se ejecuta una vez por scroll
+    });
+  }, []);
 
+  return (
     <div className="App">
       <Navbar />
-      <div className="content">
-        <Hero />
-        <MisionVision />
-        <NuestrasSedes />
-        <ServicesTabs /> {/* ✅ Aquí agregamos los servicios */}
-        <News />
-        <Pqrs />
-        <Appointment />
-        <Contact />
-        
-      </div>
+      <Hero />
+
+      <main className="content">
+        <div data-aos="fade-up">
+          <MisionVision />
+        </div>
+
+        <div data-aos="fade-up">
+          <NuestrasSedes />
+        </div>
+
+        <div data-aos="fade-up">
+          <ServicesTabs />
+        </div>
+
+        <div data-aos="fade-up">
+          <News />
+        </div>
+
+        <div data-aos="fade-up">
+          <Pqrs />
+        </div>
+
+        <div data-aos="fade-up">
+          <Appointment />
+        </div>
+
+        <div data-aos="fade-up">
+          <Contact />
+        </div>
+      </main>
 
       <Footer />
     </div>
-    </AnimatedWrapper>
   );
 }
 

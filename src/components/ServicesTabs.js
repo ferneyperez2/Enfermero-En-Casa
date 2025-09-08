@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { FaStethoscope, FaMicroscope, FaClinicMedical } from "react-icons/fa";
-import servicesData from "../components/data/servicesData";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStethoscope, faMicroscope, faDumbbell } from '@fortawesome/free-solid-svg-icons';
+import servicesData from "./data/servicesData";
 import ServiceModal from "./ServiceModal";
-import "../components/ServicesTabs.css";
+import "./ServicesTabs.css";
 
 function ServicesTabs() {
   const [activeTab, setActiveTab] = useState("consultas");
@@ -19,32 +20,33 @@ function ServicesTabs() {
           className={activeTab === "consultas" ? "active" : ""}
           onClick={() => setActiveTab("consultas")}
         >
-          <FaStethoscope /> Consultas
+          <FontAwesomeIcon icon={faStethoscope} /> Consultas
         </button>
         <button
           className={activeTab === "diagnosticos" ? "active" : ""}
           onClick={() => setActiveTab("diagnosticos")}
         >
-          <FaMicroscope /> Diagnósticos
+          <FontAwesomeIcon icon={faMicroscope} /> Diagnósticos
         </button>
         <button
-          className={activeTab === "complejidad" ? "active" : ""}
-          onClick={() => setActiveTab("complejidad")}
+          className={activeTab === "terapias" ? "active" : ""}
+          onClick={() => setActiveTab("terapias")}
         >
-          <FaClinicMedical /> Servicios I y II
+          <FontAwesomeIcon icon={faDumbbell} /> Terapias
         </button>
       </div>
 
       {/* Lista de servicios */}
       <div className="tab-content">
-        <ul>
+        <ul className="service-list">
           {servicesData[activeTab].map((service, idx) => (
             <li
               key={idx}
               className="service-item"
               onClick={() => setSelectedService(service)}
             >
-              {service.name}
+              <FontAwesomeIcon icon={service.icon} className="item-icon" />
+              <span>{service.name}</span>
             </li>
           ))}
         </ul>

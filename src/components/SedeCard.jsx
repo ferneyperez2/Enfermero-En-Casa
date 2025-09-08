@@ -1,20 +1,24 @@
 import React from 'react';
-import './SedeCard.css'; // Crea este archivo CSS para el estilo de la tarjeta
+import './SedeCard.css';
 
-const SedeCard = ({ nombre, direccion, imagen }) => {
+function SedeCard({ nombre, direccion, imagen }) {
   return (
     <div className="sede-card">
-      <div className="card-image-container">
-        <img src={imagen} alt={`Sede ${nombre}`} className="card-image" />
-      </div>
-      <div className="card-info">
-        <h3 className="card-name">{nombre}</h3>
-        <p className="card-address">
-          <span className="icon-marker">📍</span> {direccion}
-        </p>
+      <div className="sede-card-image" style={{ backgroundImage: `url(${imagen})` }}></div>
+      <div className="sede-card-content">
+        <h3 className="sede-card-title">{nombre}</h3>
+        <p className="sede-card-address">{direccion}</p>
+        <a 
+          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(direccion + ', ' + nombre)}`} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="btn-map"
+        >
+          Ver en Mapa
+        </a>
       </div>
     </div>
   );
-};
+}
 
 export default SedeCard;

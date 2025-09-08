@@ -1,111 +1,122 @@
-/* ===================== */
-/* Navbar Moderno y Responsive */
-/* ===================== */
+/* Estilos generales de la barra de navegación */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: linear-gradient(90deg, #0077b6, #0096c7);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 24px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
   z-index: 1000;
-  transition: all 0.3s ease-in-out;
+  font-family: 'Poppins', sans-serif;
 }
 
-.logo-container {
+/* Contenedor del logo */
+.navbar-logo-container {
   display: flex;
   align-items: center;
-  gap: 12px;
 }
 
-.logo {
-  height: 40px;
-  width: auto;
-}
-
-.brand-name {
-  font-size: 20px;
-  font-weight: bold;
-  color: #fff;
-}
-
-.nav-links {
+.navbar-logo-link {
   display: flex;
-  gap: 18px;
-}
-
-.nav-links a {
-  color: #fff;
-  font-size: 16px;
-  font-weight: 500;
+  align-items: center;
   text-decoration: none;
-  position: relative;
-  transition: color 0.3s ease;
+  color: #333;
 }
 
-.nav-links a:hover {
-  color: #ffd166;
+.logo-image {
+  height: 50px;
+  width: auto;
+  margin-right: 0.5rem;
 }
 
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: #ffd166;
-  transition: width 0.3s ease;
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
 }
 
-.nav-links a:hover::after {
-  width: 100%;
+/* Links de navegación */
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
 }
 
-/* Botón menú móvil */
-.menu-toggle {
+.navbar-links a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #3498db;
+  transform: translateY(-2px);
+}
+
+/* Botón de menú para móviles */
+.navbar-toggle {
   display: none;
-  font-size: 26px;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  color: #fff;
-  transition: transform 0.3s ease;
+  padding: 0;
+  z-index: 1001;
 }
 
-.menu-toggle.open {
-  transform: rotate(90deg);
+.toggle-bar {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 5px;
+  transition: all 0.3s linear;
 }
 
-/* ===================== */
-/* Responsive */
-/* ===================== */
+/* Animación del botón de menú */
+.navbar-toggle.open .toggle-bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggle.open .toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.open .toggle-bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Media Queries para responsividad */
 @media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #0096c7;
+  .navbar {
+    padding: 1rem;
+  }
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
-    width: 220px;
-    height: auto;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
   }
-
-  .nav-links.open {
+  .navbar-links.open {
     transform: translateX(0);
   }
-
-  .nav-links a {
-    padding: 10px 0;
-    width: 100%;
+  .navbar-links a {
+    font-size: 1.5rem;
   }
-
-  .menu-toggle {
-    display: block;
+  .navbar-toggle {
+    display: flex;
   }
 }

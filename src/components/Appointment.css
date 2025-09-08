@@ -1,103 +1,165 @@
+/* Sección de la Cita */
 .appointment {
-  padding: 3rem 1.5rem;
+  padding: 4rem 2rem;
+  background-color: #f0f4f8; /* Color de fondo suave */
+  font-family: 'Poppins', sans-serif; /* Tipografía más moderna */
   text-align: center;
-  background: #f9f9f9;
+  color: #333;
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  color: #2c3e50;
   margin-bottom: 0.5rem;
-  color: #0d6efd;
+  font-weight: 700;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .subtitle {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin-bottom: 2.5rem;
 }
 
-.icon, .inline-icon {
-  color: #0d6efd;
+.icon {
+  color: #3498db;
+  font-size: 2rem;
 }
 
+.inline-icon {
+  color: #e74c3c;
+  font-size: 1.2rem;
+}
+
+/* Estilos del Formulario */
 .appointment-form {
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
   background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra más suave y moderna */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 .form-group {
-  margin-bottom: 1.2rem;
+  margin-bottom: 0; /* Espacio manejado por el grid */
   text-align: left;
+}
+
+.form-group:last-of-type {
+  grid-column: 1 / -1; /* Botón a todo lo ancho */
 }
 
 .form-group label {
   font-weight: 600;
+  color: #2c3e50;
   display: block;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
   width: 100%;
-  padding: 0.7rem;
+  padding: 0.9rem;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #dfe6e9; /* Borde más sutil */
+  background-color: #f5f6fa;
   outline: none;
-  transition: border 0.3s;
+  transition: all 0.3s ease;
 }
 
-.form-group input:focus {
-  border-color: #0d6efd;
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.form-group input[type="date"],
+.form-group input[type="time"] {
+  cursor: pointer;
 }
 
 .btn {
-  background: #0d6efd;
+  grid-column: 1 / -1; /* Botón a todo lo ancho */
+  background: #3498db;
   color: #fff;
   border: none;
-  padding: 0.8rem 1.5rem;
+  padding: 1rem 2rem;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin-top: 1rem;
-  transition: background 0.3s;
+  transition: background 0.3s ease;
 }
 
-.btn:hover {
-  background: #0b5ed7;
+.btn:hover:not(:disabled) {
+  background: #2980b9;
+  transform: translateY(-2px);
 }
 
-.whatsapp {
-  margin-top: 2rem;
+.btn:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
 }
 
-.whatsapp a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  background: #25d366;
-  color: #fff;
-  padding: 0.7rem 1.2rem;
+/* Mensajes de feedback */
+.form-message {
+  grid-column: 1 / -1;
+  margin-top: 1rem;
+  padding: 1rem;
   border-radius: 8px;
   font-weight: 600;
-  transition: background 0.3s;
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
-.whatsapp a:hover {
-  background: #1ebe57;
+.form-message.success {
+  color: #27ae60;
+  background-color: #d4f8e5;
+  border: 1px solid #27ae60;
+}
+
+.form-message.error {
+  color: #c0392b;
+  background-color: #fbecec;
+  border: 1px solid #c0392b;
+}
+
+/* Estilos de contacto de WhatsApp */
+.whatsapp-contact {
+  margin-top: 3rem;
+}
+
+.whatsapp-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  background: #2ecc71;
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  border-radius: 50px; /* Botón redondo */
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-contact a:hover {
+  background: #27ae60;
+  transform: translateY(-2px);
 }
 
 .whatsapp-icon {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }

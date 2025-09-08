@@ -36,7 +36,7 @@ function Pqrs() {
 
   return (
     <section id="pqrs" className="pqrs">
-      <h2>PQRS</h2>
+      <h2>SIAU</h2>
       <form onSubmit={handleSubmit} className="pqrs-form">
         <input
           type="text"
