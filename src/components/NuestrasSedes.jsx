@@ -41,7 +41,7 @@ function NuestrasSedes() {
       <div className="sedes-banner">
         <h1 className="sedes-title">Nuestras Sedes</h1>
         <p className="sedes-intro">
-          Contamos con Sede en Montelíbano, Ayapel y Buenavista, próximamente en el municipio de San José de Urés.
+          Contamos con Sede en Montelíbano, Ayapel y Buenavista
         </p>
       </div>
       

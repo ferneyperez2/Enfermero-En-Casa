@@ -29,7 +29,7 @@ function Navbar() {
         <a href="#appointment" onClick={closeMenu}>Agendar Cita</a>
         <a href="#services" onClick={closeMenu}>Servicios</a>
         <a href="#news" onClick={closeMenu}>Noticias</a>
-        <a href="#pqrs" onClick={closeMenu}>PQRS</a>
+        <a href="#pqrs" onClick={closeMenu}>SIAU</a>
         <a href="#contact" onClick={closeMenu}>Contacto</a>
       </div>
 

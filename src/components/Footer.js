@@ -20,13 +20,13 @@ function Footer() {
           <h4 className="footer-title">Contacto</h4>
           <ul className="contact-list">
             <li>
-              <a href="tel:+573001234567">
+              <a href="tel:3218514930">
                 <FaPhone className="icon" /> +57 300 123 4567
               </a>
             </li>
             <li>
-              <a href="mailto:contacto@enfermerosencasa.com">
-                <FaEnvelope className="icon" /> contacto@enfermerosencasa.com
+              <a href="mailto:pqrs@ipsenfermerosencasa.com">
+                <FaEnvelope className="icon" />mailto:pqrs@ipsenfermerosencasa.com
               </a>
             </li>
           </ul>

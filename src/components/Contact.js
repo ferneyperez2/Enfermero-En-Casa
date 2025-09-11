@@ -18,13 +18,13 @@ function Contact() {
           </p>
           <p className="contact-item">
             <FontAwesomeIcon icon={faPhone} className="contact-icon" />
-            <a href="tel:+573234266081" className="contact-link">
+            <a href="tel:3218514930" className="contact-link">
               +57 323 4266081
             </a>
           </p>
           <p className="contact-item">
             <FontAwesomeIcon icon={faWhatsapp} className="contact-icon" />
-            <a href="https://wa.me/573234266081" target="_blank" rel="noopener noreferrer" className="contact-link">
+            <a href="https://wa.me/573218514930" target="_blank" rel="noopener noreferrer" className="contact-link">
               Enviar un mensaje por WhatsApp
             </a>
           </p>

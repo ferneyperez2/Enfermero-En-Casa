@@ -1,13 +1,13 @@
+// src/components/ServicesTabs.js
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Importa el componente Link
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStethoscope, faMicroscope, faDumbbell } from '@fortawesome/free-solid-svg-icons';
 import servicesData from "./data/servicesData";
-import ServiceModal from "./ServiceModal";
 import "./ServicesTabs.css";
 
 function ServicesTabs() {
   const [activeTab, setActiveTab] = useState("consultas");
-  const [selectedService, setSelectedService] = useState(null);
 
   return (
     <section className="services-tabs" id="services">
@@ -40,25 +40,16 @@ function ServicesTabs() {
       <div className="tab-content">
         <ul className="service-list">
           {servicesData[activeTab].map((service, idx) => (
-            <li
-              key={idx}
-              className="service-item"
-              onClick={() => setSelectedService(service)}
-            >
-              <FontAwesomeIcon icon={service.icon} className="item-icon" />
-              <span>{service.name}</span>
+            <li key={idx} className="service-item">
+              {/* Usa Link para navegar a la nueva página */}
+              <Link to={`/services/${service.name.toLowerCase().replace(/\s/g, "-")}`}>
+                <FontAwesomeIcon icon={service.icon} className="item-icon" />
+                <span>{service.name}</span>
+              </Link>
             </li>
           ))}
         </ul>
       </div>
-
-      {/* Modal con detalle + formulario */}
-      {selectedService && (
-        <ServiceModal
-          service={selectedService}
-          onClose={() => setSelectedService(null)}
-        />
-      )}
     </section>
   );
 }

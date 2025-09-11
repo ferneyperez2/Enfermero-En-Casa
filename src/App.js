@@ -1,65 +1,38 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // Importa los estilos CSS de AOS
+import 'aos/dist/aos.css';
 
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import MisionVision from "./components/MisionVision";
-import NuestrasSedes from "./components/NuestrasSedes";
-import ServicesTabs from "./components/ServicesTabs";
-import News from "./components/News";
-import Pqrs from "./components/Pqrs";
-import Appointment from "./components/Appointment";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+
+// Importa los componentes de las páginas
+import Home from "./components/pages/Home";
+import ServicePage from "./components/pages/ServicePage";
 
 import "./App.css";
 
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 1200, // Duración de la animación en milisegundos
-      once: true,     // La animación solo se ejecuta una vez por scroll
+      duration: 1200,
+      once: true,
     });
   }, []);
 
   return (
-    <div className="App">
-      <Navbar />
-      <Hero />
-
-      <main className="content">
-        <div data-aos="fade-up">
-          <MisionVision />
-        </div>
-
-        <div data-aos="fade-up">
-          <NuestrasSedes />
-        </div>
-
-        <div data-aos="fade-up">
-          <ServicesTabs />
-        </div>
-
-        <div data-aos="fade-up">
-          <News />
-        </div>
-
-        <div data-aos="fade-up">
-          <Pqrs />
-        </div>
-
-        <div data-aos="fade-up">
-          <Appointment />
-        </div>
-
-        <div data-aos="fade-up">
-          <Contact />
-        </div>
-      </main>
-
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          {/* Ruta para la página de inicio */}
+          <Route path="/" element={<Home />} />
+          {/* Ruta dinámica para cada servicio */}
+          <Route path="/services/:serviceName" element={<ServicePage />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
