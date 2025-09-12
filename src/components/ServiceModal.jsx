@@ -11,6 +11,23 @@ function ServiceModal({ service, onClose }) {
         <button onClick={onClose} className="close-btn">
           &times;
         </button>
+        
+        {/* Lógica para mostrar la imagen */}
+        {service.image && (
+          <div className="modal-image-container">
+            <img 
+              src={service.image} 
+              alt={service.name} 
+              className="modal-service-image" 
+            />
+          </div>
+        )}
+        
+        {/* Aquí puedes agregar un icono si lo deseas */}
+        {/* {service.icon && (
+          <FontAwesomeIcon icon={service.icon} />
+        )} */}
+
         <h3 className="modal-title">{service.name}</h3>
         <p className="modal-description">{service.description}</p>
 
@@ -43,7 +60,7 @@ function ServiceModal({ service, onClose }) {
 
         {/* Formulario de citas */}
         <div className="modal-form">
-            <AppointmentForm serviceName={service.name} />
+          <AppointmentForm serviceName={service.name} />
         </div>
       </div>
     </div>
