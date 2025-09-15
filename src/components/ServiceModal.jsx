@@ -23,11 +23,6 @@ function ServiceModal({ service, onClose }) {
           </div>
         )}
         
-        {/* Aquí puedes agregar un icono si lo deseas */}
-        {/* {service.icon && (
-          <FontAwesomeIcon icon={service.icon} />
-        )} */}
-
         <h3 className="modal-title">{service.name}</h3>
         <p className="modal-description">{service.description}</p>
 
