@@ -191,10 +191,9 @@ import {
   faHeart,
 } from '@fortawesome/free-solid-svg-icons';
 
-// IMPORTACIONES DE IMÁGENES:
-// Esta es la ruta más probable y correcta si tu carpeta 'assets' está en 'src/'.
-// Si tus imágenes aún no aparecen, el problema está en los nombres de archivo.
-import medicinaGeneralImage from '../assets/medicinageneral.png';
+// 🔹 CORRECCIÓN: Rutas de importación de imágenes.
+// Se asume que la carpeta 'img' está en el mismo nivel que 'data'.
+import medicinaGeneralImage from '../assets/medicinageneral.png'
 import cardiologiaImage from '../assets/cardiologia.jpg';
 import ecografiaImage from '../assets/ecografia.jpg';
 import ginecologiaImage from '../assets/ginecologia.jpg';
@@ -204,6 +203,13 @@ import nutricionImage from '../assets/nutricionydieta.jpg';
 import pediatriaImage from '../assets/pediatria.jpg';
 import radiologiaImage from '../assets/radiologia.jpg';
 import psicologiaImage from '../assets/psicologia.jpg';
+import terapiafisica from '../assets/tepariafisica.jpg'
+import atencionDomiciliariaImage from '../assets/aternciodomicilaria.jpg';
+import vacunacionImage from '../assets/vacunacion.jpg'
+import controlSignosImage from '../assets/controldesigno.jpg';
+import ortopediaImage from '../assets/ortopedia.jpg';
+import fonoaudiologiaImage from '../assets/fonoaudiologia.jpg';
+import terapiaOcupacionalImage from '../assets/terapiaocupacional.jpg';
 
 const servicesData = {
   consultas: [
@@ -218,7 +224,7 @@ const servicesData = {
       name: "Internista",
       description: "Una consulta especializada por internista es una visita médica para el manejo integral de enfermedades no quirúrgicas en adultos, ya que los internistas son médicos especializados en el cuidado de adultos que abordan problemas de salud complejos y crónicos como diabetes, hipertensión, enfermedades cardíacas, pulmonares y renales.",
       video: "https://www.youtube.com/embed/z-2_02o5aG8",
-      benefits: ["Atención integral", "Diagnóstico preciso","Manejo de enfermedades crónicas"],
+      benefits: ["Atención integral", "Diagnóstico preciso", "Manejo de enfermedades crónicas"],
       icon: faUserMd,
       image: medicinaInternaImage
     },
@@ -238,11 +244,13 @@ const servicesData = {
       icon: faHeart,
       image: ginecologiaImage
     },
-    {name: "Ortopedia",
+    {
+      name: "Ortopedia",
       description: "La ortopedia es la especialidad médica que se encarga del diagnóstico, tratamiento y rehabilitación de lesiones y enfermedades del sistema musculoesquelético, que incluye los huesos, articulaciones, músculos, tendones y ligamentos. Los médicos especialistas en ortopedia, llamados ortopedistas, tratan afecciones de todas las edades, desde deformidades congénitas en niños hasta artrosis en adultos mayores, y pueden especializarse en diversas áreas como la columna, mano, rodilla, pie, pediatría o medicina deportiva. ",
       video: "https://www.youtube.com/embed/6yN-QkL3d_A",
-      benefits: ["Recuperación de la movilidad y funcionalidad","Alivio del dolor en huesos, articulaciones y músculos.traumáticas"],
-      icon: faBone
+      benefits: ["Recuperación de la movilidad y funcionalidad", "Alivio del dolor en huesos, articulaciones y músculos.traumáticas"],
+      icon: faBone,
+      image: ortopediaImage
     },
     {
       name: "Cardiología",
@@ -291,21 +299,24 @@ const servicesData = {
       description: "La terapia física, también llamada fisioterapia, es una especialidad de las ciencias de la salud que se enfoca en mejorar, restaurar y prevenir la capacidad física del cuerpo humano mediante ejercicios terapéuticos y técnicas físicas como masajes, calor, frío, o agentes eléctricos. Su objetivo es aliviar el dolor, fortalecer músculos y articulaciones, y mejorar la movilidad para aumentar la independencia funcional y la calidad de vida de las personas afectadas por lesiones, enfermedades o condiciones genéticas. ",
       video: "https://www.youtube.com/embed/7r-uE1tKkUo",
       benefits: ["Rehabilitación post-quirúrgica", "Manejo del dolor crónico", "Recuperación de lesiones deportivas"],
-      icon: faDumbbell
+      icon: faDumbbell,
+      image: terapiafisica
     },
     {
       name: "Terapia Ocupacional",
       description: "La terapia ocupacional (TO) es una disciplina de la salud que ayuda a personas de todas las edades a realizar las actividades de su vida diaria (ocupaciones) para promover su salud, bienestar y participación. Utiliza actividades terapéuticas para mejorar la independencia en el cuidado personal, el trabajo, el estudio y el ocio, adaptando tareas o el entorno para aumentar la calidad de vida. ",
       video: "https://www.youtube.com/embed/6iY5nE-uG0Q",
       benefits: ["Mejora de la autonomía", "Adaptación de entornos", "Actividades terapéuticas"],
-      icon: faBrain
+      icon: faBrain,
+      image: terapiaOcupacionalImage
     },
     {
       name: "Fonoaudiología",
       description: "La fonoaudiología es una disciplina de la salud que se enfoca en la prevención, evaluación, diagnóstico y tratamiento de los trastornos relacionados con la comunicación humana, abarcando el lenguaje, el habla, la voz, la audición y la deglución en personas de todas las edades. Los fonoaudiólogos trabajan para mejorar la calidad de vida de individuos y comunidades al rehabilitar o fomentar habilidades comunicativas, así como también abordan problemas de motricidad orofacial y audición, utilizando terapias y tecnología especializada. ",
       video: "https://www.youtube.com/embed/n3vL3i7_9dI",
       benefits: ["Rehabilitación del habla", "Terapia de lenguaje", "Evaluación auditiva"],
-      icon: faHandsHelping
+      icon: faHandsHelping,
+      image: fonoaudiologiaImage
     },
     {
       name: "Psicología",
@@ -321,21 +332,24 @@ const servicesData = {
       description: "La atención domiciliaria es un servicio que brinda asistencia médica, psicosocial y de enfermería en el hogar de personas que no pueden desplazarse a un centro de salud. Este tipo de atención incluye servicios como cuidado personal, asistencia en tareas domésticas y apoyo profesional (médico, psicólogo, trabajador social) para el paciente y su familia, con el objetivo de prevenir hospitalizaciones y promover la autonomía. ",
       video: "https://www.youtube.com/embed/z-2_02o5aG8",
       benefits: ["Aplicación de medicamentos", "Curaciones", "Control de signos vitales"],
-      icon: faUserMd
+      icon: faUserMd,
+      image: atencionDomiciliariaImage
     },
     {
       name: "Vacunación",
       description: "Servicio de vacunación para niños y adultos a domicilio, con todos los protocolos de seguridad.",
       video: "https://www.youtube.com/embed/6iY5nE-uG0Q",
       benefits: ["Prevención de enfermedades", "Personal calificado", "Sin necesidad de salir de casa"],
-      icon: faSyringe
+      icon: faSyringe,
+      image: vacunacionImage
     },
     {
       name: "Control de signos vitales",
       description: "Monitoreo constante de presión arterial, frecuencia cardiaca, temperatura y saturación de oxígeno.",
       video: "https://www.youtube.com/embed/6yN-QkL3d_A",
       benefits: ["Seguimiento de enfermedades crónicas", "Reporte detallado", "Alerta de emergencias"],
-      icon: faHeartbeat
+      icon: faHeartbeat,
+      image: controlSignosImage
     }
   ]
 };
